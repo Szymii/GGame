@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://brn3gta8cfnp5"]
+
+[ext_resource type="TileSet" uid="uid://beknjjg13k7w1" path="res://scene/level.tres" id="1_6g5c4"]
+[ext_resource type="Script" path="res://scene/level_2.gd" id="1_6qjt2"]
+
+[node name="level2" type="Node2D"]
+script = ExtResource("1_6qjt2")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_6g5c4")
+format = 2
+layer_0/tile_data = PackedInt32Array(262145, 1, 12, 262151, 524289, 12, 262146, 262145, 12, 262147, 262145, 12, 262148, 262145, 12, 262149, 262145, 12, 262150, 262145, 12, 458753, 1310720, 8, 458759, 1835008, 8, 458754, 1572864, 8, 458755, 1572864, 8, 458756, 1572864, 8, 458757, 1572864, 8, 458758, 1572864, 8, 393217, 1310720, 4, 327681, 1310720, 0, 393223, 1835008, 4, 327687, 1835008, 0, 327682, 1572864, 0, 327683, 1572864, 0, 393219, 1572864, 4, 393220, 1572864, 4, 393221, 1572864, 4, 393222, 1572864, 4, 327686, 1572864, 0, 327685, 1572864, 0, 327684, 1572864, 0, 393218, 1572864, 4)
+
+[node name="EntranceMarker" type="Node2D" parent="."]
+position = Vector2(272, 484)
+
+[node name="any" type="Marker2D" parent="EntranceMarker"]
