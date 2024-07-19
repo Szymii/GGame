@@ -14,10 +14,6 @@ config/name="IWillDie"
 run/main_scene="res://scene/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
-[autoload]
-
-scene_menager="*res://scripts/scene_trigger/scene_menager.gd"
-
 [input]
 
 up={

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0aisv00luypi"
-path="res://.godot/imported/Prototype_Character.png-29ed4198486b4c4b316823a1524ad267.ctex"
+uid="uid://b6wchadkeuqgc"
+path="res://.godot/imported/terrain.png-02334d89f314a8996b3c48f78734ffd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Prototype_Character.png"
-dest_files=["res://.godot/imported/Prototype_Character.png-29ed4198486b4c4b316823a1524ad267.ctex"]
+source_file="res://assets/terrain.png"
+dest_files=["res://.godot/imported/terrain.png-02334d89f314a8996b3c48f78734ffd5.ctex"]
 
 [params]
 
