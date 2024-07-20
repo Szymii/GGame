@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvjwnqgvotkkw"]
+
+[ext_resource type="Texture2D" uid="uid://3xgcau0cp7mw" path="res://assets/frodge.png" id="1_egv8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf17w"]
+size = Vector2(11, 9)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_bf17w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -7)
+texture = ExtResource("1_egv8c")
+hframes = 4
