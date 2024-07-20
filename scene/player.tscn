@@ -1,22 +1,84 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvjwnqgvotkkw"]
+[gd_scene load_steps=9 format=3 uid="uid://cvjwnqgvotkkw"]
 
-[ext_resource type="Texture2D" uid="uid://3xgcau0cp7mw" path="res://assets/frodge.png" id="1_egv8c"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_dhr2r"]
+[ext_resource type="Texture2D" uid="uid://chrhdmjj4edkc" path="res://assets/frog.png" id="1_qlwa2"]
 [ext_resource type="Script" path="res://scripts/composable/free_jump.gd" id="2_8m8vy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf17w"]
-size = Vector2(11, 9)
+size = Vector2(11, 9.25)
+
+[sub_resource type="Animation" id="Animation_ie3b0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jj1a8"]
+resource_name = "move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_eubng"]
+resource_name = "jump"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlswb"]
+_data = {
+"RESET": SubResource("Animation_ie3b0"),
+"jump": SubResource("Animation_eubng"),
+"move": SubResource("Animation_jj1a8")
+}
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dhr2r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -4.5)
+position = Vector2(0.5, -4.625)
 shape = SubResource("RectangleShape2D_bf17w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -7)
-texture = ExtResource("1_egv8c")
+position = Vector2(0, -5)
+texture = ExtResource("1_qlwa2")
 hframes = 4
 
 [node name="movement" type="Node" parent="."]
 script = ExtResource("2_8m8vy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qlswb")
+}
