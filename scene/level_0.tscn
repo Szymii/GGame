@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://btw7vn3q17fe8"]
+[gd_scene load_steps=10 format=3 uid="uid://btw7vn3q17fe8"]
 
 [ext_resource type="PackedScene" uid="uid://cvjwnqgvotkkw" path="res://scene/player.tscn" id="1_1i13n"]
 [ext_resource type="Texture2D" uid="uid://b6wchadkeuqgc" path="res://assets/terrain.png" id="2_dc666"]
-[ext_resource type="Script" path="res://scripts/jump_king_jump.gd" id="2_p2fr2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oclxs"]
 texture = ExtResource("2_dc666")
@@ -34,7 +33,6 @@ size = Vector2(15, 229)
 
 [node name="Player" parent="." instance=ExtResource("1_1i13n")]
 position = Vector2(107, 264)
-script = ExtResource("2_p2fr2")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

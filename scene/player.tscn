@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvjwnqgvotkkw"]
+[gd_scene load_steps=4 format=3 uid="uid://cvjwnqgvotkkw"]
 
 [ext_resource type="Texture2D" uid="uid://3xgcau0cp7mw" path="res://assets/frodge.png" id="1_egv8c"]
+[ext_resource type="Script" path="res://scripts/composable/free_jump.gd" id="2_8m8vy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf17w"]
 size = Vector2(11, 9)
@@ -16,3 +17,6 @@ texture_filter = 1
 position = Vector2(1, -7)
 texture = ExtResource("1_egv8c")
 hframes = 4
+
+[node name="movement" type="Node" parent="."]
+script = ExtResource("2_8m8vy")

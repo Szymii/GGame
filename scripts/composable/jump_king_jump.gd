@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name JumpKingJump extends Node
 
 @export var speed: float = 200
 @export var base_jump_height: float = 10
@@ -6,6 +6,14 @@ extends CharacterBody2D
 var is_jumping: bool = false;
 var jump_direction = 1 # 1 = right, -1 = left
 var jump_height: float = base_jump_height
+
+func _enter_tree() -> void:
+	# This component can only be a chld of CharacterBody2D
+	assert(owner is CharacterBody2D)
+	owner.set_meta(&"InteractableComponent", self) # Register
+
+func _exit_tree() -> void:
+	owner.remove_meta(&"InteractableComponent") # Unregister
 
 func time_to_peak() -> float:
 	return (0.05 * jump_height / 10) + 0.10
@@ -19,7 +27,7 @@ func jump_velocity() -> float:
 func get_gravity() -> float:
 	var _time_to_pick = time_to_peak()
 	var _time_to_fall = time_to_fall()
-	if velocity.y < 0:
+	if owner.velocity.y < 0:
 		return ((2.0 * jump_height) / (_time_to_pick * _time_to_pick * 2))
 	else:
 		return ((2.0 * jump_height) / (_time_to_fall * _time_to_fall * 2))
@@ -30,7 +38,7 @@ func jump() -> void:
 
 	if Input.is_action_just_released("jump"):
 		is_jumping = true
-		velocity.y = -jump_velocity()
+		owner.velocity.y = -jump_velocity()
 
 func set_jump_direction() -> void:
 		if Input.is_action_just_pressed("left"):
@@ -39,24 +47,24 @@ func set_jump_direction() -> void:
 			jump_direction = 1
 
 func _physics_process(delta) -> void:
-	if is_on_floor():
+	if owner.is_on_floor():
 		# reset jump
 		if is_jumping:
 			is_jumping = false
 			jump_height = base_jump_height
 
 		# move left or right
-		velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed
+		owner.velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed
 		
 		set_jump_direction()
 		jump()
 			
 	else:
-		velocity.y += get_gravity() * delta
+		owner.velocity.y += get_gravity() * delta
 		if is_jumping:
-			velocity.x = jump_direction * speed / 1.5
+			owner.velocity.x = jump_direction * speed / 1.5
 		else:
 			# fall off the edge (slight controll)
-			velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed / 4
+			owner.velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed / 4
 	
-	move_and_slide()
+	owner.move_and_slide()
