@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://rbgrqytbnrgv"]
+
+[ext_resource type="Texture2D" uid="uid://bsfmk8xows7k6" path="res://assets/sky.jpg" id="1_ktq3h"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_p7fda"]
+[ext_resource type="Texture2D" uid="uid://byun45ibvon1f" path="res://assets/Żabking.png" id="2_wev3e"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7fda")
+
+[node name="Sky" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(300, 302)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_ktq3h")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(306, 163)
+texture = ExtResource("2_wev3e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 192.0
+offset_top = 241.0
+offset_right = 396.0
+offset_bottom = 272.0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Start" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Start"
+
+[node name="Dev" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Test mode"
+
+[connection signal="pressed" from="HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dev" to="." method="_on_dev_pressed"]

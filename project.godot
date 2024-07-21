@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="IWillDie"
-run/main_scene="res://scene/level_0.tscn"
+run/main_scene="res://scene/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]
 
-window/size/viewport_width=600
-window/size/viewport_height=600
+window/size/viewport_width=1200
+window/size/viewport_height=800
 window/stretch/aspect="expand"
 window/stretch/scale=2.0
 

@@ -8,20 +8,18 @@ var direction: float = 0
 func paly_animation():
 	if direction != 0 and is_on_floor():
 		animation_player.play("move")
-		return 
+		return
 
 	if !is_on_floor():
 		animation_player.play("jump")
-		return 
+		return
 		
 	animation_player.play("RESET")
-	return 
+	return
 
 func _physics_process(_delta):
 	direction = Input.get_axis("left", "right")
 	
-	print(direction != 0)
-
 	if direction != 0:
 		sprite.flip_h = (direction == - 1)
  
