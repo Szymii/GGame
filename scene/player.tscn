@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvjwnqgvotkkw"]
+[gd_scene load_steps=10 format=3 uid="uid://cvjwnqgvotkkw"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dhr2r"]
 [ext_resource type="Texture2D" uid="uid://chrhdmjj4edkc" path="res://assets/frog.png" id="1_qlwa2"]
 [ext_resource type="Script" path="res://scripts/composable/free_jump.gd" id="2_8m8vy"]
+[ext_resource type="Script" path="res://scripts/composable/jump_king_jump.gd" id="4_uj2qe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf17w"]
 size = Vector2(11, 9.25)
@@ -75,10 +76,13 @@ position = Vector2(0, -5)
 texture = ExtResource("1_qlwa2")
 hframes = 4
 
-[node name="movement" type="Node" parent="."]
-script = ExtResource("2_8m8vy")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qlswb")
 }
+
+[node name="FreeJump" type="Node" parent="."]
+script = ExtResource("2_8m8vy")
+
+[node name="JumpKingJump" type="Node" parent="."]
+script = ExtResource("4_uj2qe")
