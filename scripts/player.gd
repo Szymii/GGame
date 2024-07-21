@@ -29,7 +29,6 @@ func _ready():
 
 func _physics_process(_delta):
 	if velocity.x != 0:
-		print(velocity.x < 0)
 		sprite.flip_h = (velocity.x < 0)
  
 	paly_animation()

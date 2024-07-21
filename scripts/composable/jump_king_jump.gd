@@ -33,11 +33,11 @@ func get_gravity() -> float:
 	if owner.velocity.y < 0:
 		return ((2.0 * jump_height) / (_time_to_pick * _time_to_pick * 2))
 	else:
-		return ((2.0 * jump_height) / (_time_to_fall * _time_to_fall))
+		return ((2.0 * jump_height) / (_time_to_fall * _time_to_fall) * 2.4)
 
 func jump() -> void:
 	if Input.is_action_pressed("jump") and jump_height < max_jump_height:
-		# 3 sec is max jump loading time
+		# 1.5 sec is max jump loading time
 		jump_height += (max_jump_height - base_jump_height) / 90
 
 	if Input.is_action_just_released("jump"):
@@ -45,7 +45,7 @@ func jump() -> void:
 		owner.velocity.y = -jump_velocity()
 
 func move() -> void:
-	owner.velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed
+	owner.velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed / 2
 
 func set_jump_direction() -> void:
 		if Input.is_action_just_pressed("left"):
