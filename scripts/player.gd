@@ -8,8 +8,8 @@ var direction: float = 0
 @onready var free_jump = $FreeJump
 @onready var jump_king_jump = $JumpKingJump
 
-
 func paly_animation():
+	direction = Input.get_axis("left", "right")
 	if direction != 0 and is_on_floor():
 		animation_player.play("move")
 		return
@@ -28,9 +28,8 @@ func _ready():
 		remove_child(jump_king_jump)
 
 func _physics_process(_delta):
-	direction = Input.get_axis("left", "right")
-	
-	if direction != 0:
-		sprite.flip_h = (direction == - 1)
+	if velocity.x != 0:
+		print(velocity.x < 0)
+		sprite.flip_h = (velocity.x < 0)
  
 	paly_animation()

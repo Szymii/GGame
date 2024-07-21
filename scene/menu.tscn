@@ -9,27 +9,30 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -272.0
+offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p7fda")
 
 [node name="Sky" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(300, 302)
-scale = Vector2(0.75, 0.75)
+position = Vector2(136.625, 152.125)
+scale = Vector2(0.330206, 0.367736)
 texture = ExtResource("1_ktq3h")
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(306, 163)
+position = Vector2(135, 53)
+scale = Vector2(0.754717, 0.754717)
 texture = ExtResource("2_wev3e")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-offset_left = 192.0
-offset_top = 241.0
-offset_right = 396.0
-offset_bottom = 272.0
+offset_left = 34.0
+offset_top = 128.0
+offset_right = 238.0
+offset_bottom = 159.0
 size_flags_vertical = 0
 alignment = 1
 
