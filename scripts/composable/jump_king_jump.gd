@@ -37,15 +37,16 @@ func get_gravity() -> float:
 
 func jump() -> void:
 	if Input.is_action_pressed("jump") and jump_height < max_jump_height:
-		# 1.5 sec is max jump loading time
-		jump_height += (max_jump_height - base_jump_height) / 90
+		owner.velocity.x = 0 # stop moving while loading jump
+		jump_height += (max_jump_height - base_jump_height) / 90 # 1.5 sec is max jump loading time
 
 	if Input.is_action_just_released("jump"):
 		is_jumping = true
 		owner.velocity.y = -jump_velocity()
 
 func move() -> void:
-	owner.velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed / 2
+	if jump_height <= base_jump_height:
+		owner.velocity.x = clamp(Input.get_axis("left", "right") * 100, -1.0, 1.0) * speed / 2
 
 func set_jump_direction() -> void:
 		if Input.is_action_just_pressed("left"):
